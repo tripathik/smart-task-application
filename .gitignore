@@ -1,0 +1,24 @@
+# Compiled files
+*.class
+
+# Maven / Gradle
+target/
+build/
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+
+
+# OS
+
+# Environment
+.env
