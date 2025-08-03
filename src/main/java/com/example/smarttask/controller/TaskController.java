@@ -5,6 +5,7 @@ import com.example.smarttask.dto.response.TaskResponseDTO;
 import com.example.smarttask.service.TaskService;
 import com.example.smarttask.service.TaskSimulationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,5 +36,10 @@ public class TaskController {
     @GetMapping("simulation/status")
     public Map<Long, String> getTaskSimulationStatus() {
         return simulationService.getTaskSimulationStatus();
+    }
+    @PostMapping("/run/{taskId}")
+    public ResponseEntity<String> runTask(@PathVariable Long taskId) {
+        taskService.runAsyncTask(taskId);
+        return ResponseEntity.ok("Task started asynchronously");
     }
 }
